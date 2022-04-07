@@ -1,3 +1,62 @@
-DB_NAME='anything_about_tech_db'
-DB_USER='root'
-DB_PW='Love@100%True'
+<style>
+    .login {
+        margin: 20px auto;
+        width: 200px;
+        border: 2px solid black;
+        border-radius: 12px;
+        padding: 20px;
+        background-color: lightgray;
+    }
+
+    .login h2 {
+        margin-top: 0;
+    }
+
+    .login h4 {
+        margin-bottom: 0;
+    }
+
+    .signUpOrLogin {
+        display: flex;
+        justify-content: space-around;
+    }
+    button {
+        margin-top: 20px;
+        background-color: green;
+        border-radius: 12px;
+        box-shadow: 2px 2px 4px black;
+        color: white;
+        padding: 5px;
+    }
+</style>
+
+<div class="signUpOrLogin">
+
+    <div class="login">
+        <h2>Login</h2>
+        <div id="login">
+            <h4>Username:</h4>
+            <input type="text" id="username">
+            <h4>Password:</h4>
+            <input type="password" id="password">
+        </div>
+        <button id="submitLogin">Submint</button>
+    </div>
+
+    <div class="login">
+        <h2>Sign up</h2>
+        <div id="login">
+            <h4>Username:</h4>
+            <input type="text" id="username">
+            <h4>email:</h4>
+            <input type="text" id="email">
+            <h4>Password:</h4>
+            <input type="password" id="password">
+            <h4>Confirm:</h4>
+            <input type="password" id="password">
+        </div>
+        <button id="submitSignup">Submint</button>
+    </div>
+</div>
+
+<script src="assets/javascripts/login.js"></script>
