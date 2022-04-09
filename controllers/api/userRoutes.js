@@ -29,6 +29,11 @@ router.get('/:id', (req, res) => {
         res.status(404).json({ message: 'No user found with this id' });
         return;
       }
+      const validPassword = dbUserData.checkPassword(req.body.password);
+      if (!validPassword) {
+      res.status(400).json({ message: 'Incorrect password!' });
+      return;
+    }
       res.json(dbUserData);
     })
     .catch(err => {
@@ -54,6 +59,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   // if req.body has exact key/value pairs to match the model, you can just use `req.body` instead
   User.update(req.body, {
+    individualHooks: true,
     where: {
       id: req.params.id
     }

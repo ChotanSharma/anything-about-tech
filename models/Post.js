@@ -19,7 +19,7 @@ Post.init(
             len: [1]
         }
       },
-      text: {
+      post_text: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -44,4 +44,4 @@ Post.init(
   }
 );
 
-module.exports = { Post };
+module.exports = Post;

@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Tech Blog</title>
-    <style>
-        body {
-            background-color: rgb(6, 90, 83);
-        }
-        .banner{
-            background-color: #5c2424;
-            padding: 5px 20px 20px 20px;
-        }
-        li {
-            display: inline-block;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tech Blog</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-        a {
-            text-decoration: none;
-            margin: 0 5px;
-            color: white;
-        }
-
-        .banner h1 {
-            background-color: lightgreen;
-            color: #5c2424;
-            padding: 5px;
-            border-radius: 12px;
-            box-shadow: 5px 5px 5px gray;
-            width: fit-content;
-            margin: 0 auto 10px 10px;
-        }
-        .container {
-            background-color: lightgreen;
-        }
-    </style>
 </head>
+
 <body>
-    {{{body}}}
+  <div class="wrapper">
+    <header>
+      <h1>
+        <p class="blog-title">The Tech Blog <i class="large material-icons">laptop_mac</i></p>
+      </h1>
+    
+    <nav>
+    {{#if loggedIn}}
+    <a href="/" class="homepage">Homepage</a>
+    <a href="/dashboard">Dashboard</a>
+    <button id="logout" class="btn-no-style">Logout</button>
+    {{else}}
+    <a href="/" class="homepage">Homepage</a>
+    <a href="/login">Login</a>
+    {{/if}}
+    </nav>
+    </header>
+    <main>
+      {{{ body }}}
+    </main>
+  </div>
+
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+
 </body>
+
 </html>
