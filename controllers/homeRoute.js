@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const { Post, User, Comment } = require("../models");
+const withAuth = require("../utils/auth");
+
 // all posts in the homepage
 router.get("/", (req, res) => {
   Post.findAll({

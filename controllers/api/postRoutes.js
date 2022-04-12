@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
             include: {
               model: User,
               attributes: ["username"],
-        },
+         },
         },
         {
             model: User,
@@ -80,7 +80,7 @@ router.post('/', (req, res) => {
   Post.create({
     title: req.body.title,
     post_text: req.body.post_text,
-    user_id: req.body.user_id
+    user_id: req.session.user_id
   })
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {

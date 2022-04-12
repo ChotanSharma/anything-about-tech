@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
-const sequelize = require('../config/connection');
 
 // dashboard displaying posts created by logged in users 
 router.get('/', withAuth, (req, res) => {
@@ -25,10 +24,6 @@ router.get('/', withAuth, (req, res) => {
             attributes: ['username']
           }
         },
-        {
-          model: User,
-          attributes: ['username']
-        }
       ]
     })
       .then(dbPostData => {
