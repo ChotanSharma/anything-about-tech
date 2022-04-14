@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Tech Blog</title>
-  <link rel="stylesheet" href="./stylesheet/style.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
@@ -25,7 +25,6 @@
     {{else}}
     <a href="/" class="homepage">Homepage</a>
     <a href="/login">Login</a>
-    <a href="/signup">Sign up</a>
     {{/if}}
     </nav>
     </header>
@@ -35,7 +34,7 @@
   </div>
 
     {{#if loggedIn}}
-    {{!-- <script src="/javascript/logout.js"></script> --}}
+    <script src="/javascript/logout.js"></script>
     {{/if}}
 
 </body>

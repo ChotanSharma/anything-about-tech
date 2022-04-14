@@ -30,16 +30,20 @@
     }
 </style>
 
-<div class="signUpOrLogin">
+form class="login-form">
+  <div>
+    <label for="email-login">Email:</label>
+    <input type="text" id="email-login" />
+  </div>
+  <div>
+    <label for="password-login">Password:</label>
+    <input type="password" id="password-login" />
+  </div>
+  <div>
+    <button type="submit">Login</button>
+  </div>
+  <div class ="sign-up">
+      Not a member? <a href="/signup">Sign Up now!</a>
+  </div>
 
-    <div class="login">
-        <h2>Login</h2>
-        <div id="login">
-            <h4>Email:</h4>
-            <input type="text" id="email-login">
-            <h4>Password:</h4>
-            <input type="password" id="password">
-        </div>
-        <button id="submitLogin">Submit</button>
-    </div>
-<script src="assets/javascripts/login.js"></script>
+  <script src="/javascript/login.js"></script>
