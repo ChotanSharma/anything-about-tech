@@ -8,23 +8,7 @@ router.get('/', withAuth, (req, res) => {
       where: {
         // use the ID from the session
         user_id: req.session.user_id
-      },
-      attributes: [
-        'id',
-        'post_text',
-        'title',
-        'created_at'
-      ],
-      include: [
-        {
-          model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-          include: {
-            model: User,
-            attributes: ['username']
-          }
-        },
-      ]
+      }
     })
       .then(dbPostData => {
         // serialize data before passing to template
@@ -57,8 +41,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
         model: Comment,
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
-        model: User,
-        attributes: ['username']
+          model: User,
+          attributes: ['username']
         }
     }
     ]
@@ -73,9 +57,5 @@ router.get('/edit/:id', withAuth, (req, res) => {
     });
 });
 
-// rendering newpost page 
-router.get('/newpost', (req, res) => {
-  res.render('new-posts');
-});
 
 module.exports = router;

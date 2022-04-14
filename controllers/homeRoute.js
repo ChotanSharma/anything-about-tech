@@ -5,21 +5,7 @@ const withAuth = require("../utils/auth");
 // all posts in the homepage
 router.get("/", (req, res) => {
   Post.findAll({
-    attributes: ["id", "title", "contents", "created_at"],
-    include: [
-      {
-        model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
-        include: {
-          model: User,
-          attributes: ["username"],
-        },
-      },
-      {
-        model: User,
-        attributes: ["username"],
-      },
-    ],
+    include: [ User ],
   })
     .then((dbPostData) => {
       // pass a single post object into the homepage template
@@ -37,7 +23,7 @@ router.get("/post/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "title", "contents", "created_at"],
+    attributes: ["id", "title", "post_text", "created_at"],
     include: [
       {
         model: Comment,
@@ -79,4 +65,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+router.get("/signup", (req,res) => {
+  res.render("signup");
+})
 module.exports = router;

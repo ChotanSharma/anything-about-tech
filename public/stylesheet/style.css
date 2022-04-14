@@ -1,0 +1,36 @@
+:root {
+    --primary-color: #6F1E51;
+    --primary-hover: #B53471;
+}
+
+* {
+    box-sizing: border-box;
+ 
+  }
+
+body, html, input, textarea {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: color .1s;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.homepage {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: color .1s;
+    margin: 20px;
+}
+
+a:hover {
+    color: var(--primary-hover);

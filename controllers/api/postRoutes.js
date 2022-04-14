@@ -4,7 +4,6 @@ const { User, Post, Comment } = require('../../models');
 // GET /api/posts
 router.get('/', (req, res) => {
   // Access our Post model including comments frm users
-  
   Post.findAll({
     attributes: ['id', 
         'title',
