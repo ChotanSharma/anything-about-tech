@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Post, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
+const sequelize = require('../config/connection');
 
 // all posts in the homepage
 router.get("/", (req, res) => {
@@ -10,7 +11,7 @@ router.get("/", (req, res) => {
     .then((dbPostData) => {
       // pass a single post object into the homepage template
       const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render("homepage", { posts, loggedIn: req.session.loggedIn });
+      res.render('homepage', { posts, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
       console.log(err);
@@ -18,6 +19,7 @@ router.get("/", (req, res) => {
     });
 });
 
+//rendering one post to the single-post page
 router.get("/post/:id", (req, res) => {
   Post.findOne({
     where: {
@@ -56,6 +58,7 @@ router.get("/post/:id", (req, res) => {
     });
 });
 
+// redirecting users to homepage once they log in
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
@@ -65,7 +68,10 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+
+// rendering sign up page
 router.get("/signup", (req,res) => {
   res.render("signup");
 })
+
 module.exports = router;

@@ -4,7 +4,7 @@ const withAuth = require("../../utils/auth");
 
 // GET /api/comments
 router.get('/', (req, res) => {
-  // Access our Comment model and run .findAll() method){
+  // Access our Comment model and run .findAll() 
   Comment.findAll({})
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {
