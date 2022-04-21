@@ -10,11 +10,9 @@ router.get('/', withAuth, (req, res) => {
         // use the ID from the session
         user_id: req.session.user_id
       },
-      attributes: [
-        'id',
+      attributes: ['id',
         'post_text',
         'title',
-        'created_at'
       ],
       include: [
         {
@@ -50,8 +48,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     },
     attributes: ['id', 
                 'post_text', 
-                'title',
-                'created_at'
+                'title'
             ],
     include: [
     {
