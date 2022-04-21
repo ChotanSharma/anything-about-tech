@@ -1,6 +1,6 @@
-const express = require("express");
-const routes = require("./controllers");
 const sequelize = require("./config/connection");
+const routes = require("./controllers");
+const express = require("express");
 const path = require('path');
 // helper functions
 const helpers = require("./utils/helpers");
@@ -13,14 +13,11 @@ const hbs = exphbs.create({ helpers });
 const session = require("express-session");
 require("dotenv").config();
 
-const app = express();
-const PORT = process.env.PORT || 3001;
-
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 // creating session
 const sess = {
-  secret: "super secret",
+  secret: "supersupersecret",
   cookie: {},
   resave: false,
   saveUninitialized: true,
@@ -28,6 +25,9 @@ const sess = {
     db: sequelize,
   }),
 };
+
+const app = express();
+const PORT = process.env.PORT || 3001;
 
 app.use(session(sess));
 app.use(express.json());
